@@ -12,13 +12,14 @@ hilt = "2.45"
 hiltNavigation = "1.2.0"
 hiltViewModel = "1.0.0-alpha03"
 hiltCompiler = "1.2.0"
-retrofit = "2.9.0"
-coil = "1.3.2"
-coroutines = "1.9.22"
-okhttp3 = "1.3.2"
+retrofit = "2.11.0"
+coil = "2.6.0"
+coroutines = "1.8.1"
+okhttp3 = "4.12.0"
+okhttp3Logging = "4.12.0"
 timber = "5.0.1"
 accompanistCoil = "0.15.0"
-palette = "28.0.0"
+palette = "1.0.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -38,20 +39,20 @@ androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-man
 androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
 
-coil = { group = "io.coil", name = "coil", version.ref = "coil" }
+coil = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
 coil-accompanist = { group = "com.google.accompanist", name = "accompanist-coil", version.ref = "accompanistCoil"}
-retrofit = { group = "com.square.retrofit2", name = "retrofit", version.ref = "retrofit"}
-retrofit-gson = { group = "com.square.retrofit2", name = "converter-gson", version.ref = "retrofit"}
+retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit"}
+retrofit-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit"}
 okhttp3 = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp3"}
-okhttp3-logging = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp3"}
+okhttp3-logging = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp3Logging"}
 timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timber"}
 hilt = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
 kapt = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt"}
 hilt-navigation = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hiltNavigation"}
 hilt-viewModel = { group = "androidx.hilt", name = "hilt-lifecycle-viewmodel", version.ref = "hiltViewModel" }
 hilt-compiler = { group = "androidx.hilt", name = "hilt-compiler", version.ref = "hiltCompiler"}
-coroutines = { group = "org.jetbrains.kotlinx", name = "kotlin-coroutine", version.ref = "coroutines"}
-palette = { group = "com.android.support", name = "palette-v7", version.ref = "palette"}
+coroutines = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutines"}
+palette = { group = "androidx.palette", name = "palette", version.ref = "palette"}
 
 
 [plugins]
