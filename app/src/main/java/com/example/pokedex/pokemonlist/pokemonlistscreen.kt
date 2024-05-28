@@ -55,6 +55,7 @@ import com.example.pokedex.ui.theme.RobotoCondensed
 //show pokemon list screen that will fetch the api from repo and show on this screen
 @Composable
 fun PokemonListScreen(
+    navController: NavController
 ) {
     Surface (
         color = MaterialTheme.colorScheme.background,
@@ -208,5 +209,4 @@ fun PokedexRow(
  @Preview
 @Composable
 fun PokemonListScreenPreview() {
-    PokemonListScreen()
 }
