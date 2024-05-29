@@ -80,7 +80,6 @@ dependencies {
     //dagger - hilt
     implementation(libs.hilt)
     implementation(libs.hilt.navigation)
-    implementation(libs.hilt.viewModel)
     kapt(libs.kapt)
     kapt(libs.hilt.compiler)
 

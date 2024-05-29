@@ -31,6 +31,10 @@ class PokemonListViewModel @Inject constructor(
     var loadError = mutableStateOf("")
     var endReached = mutableStateOf(false)
 
+    init {
+        loadPokemonPaginated()
+    }
+
     fun loadPokemonPaginated() {
         viewModelScope.launch {
             isLoading.value = true
