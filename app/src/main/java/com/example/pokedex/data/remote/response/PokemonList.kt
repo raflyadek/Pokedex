@@ -11,7 +11,7 @@ data class PokemonList(
 	val previous: Any? = null,
 
 	@field:SerializedName("count")
-	val count: Int? = null,
+	val count: Int,
 
 	@field:SerializedName("results")
 	val results: List<ResultsItem>

@@ -1,6 +1,5 @@
 package com.example.pokedex.pokemonlist
 
-import androidx.compose.animation.fadeIn
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -31,10 +30,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.scale
 import androidx.compose.ui.draw.shadow
-import androidx.compose.ui.focus.FocusState
-import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
@@ -47,11 +43,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import coil.Coil
-import coil.ImageLoader
-import coil.compose.AsyncImage
 import coil.compose.SubcomposeAsyncImage
-import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
 import com.example.pokedex.R
 import com.example.pokedex.data.PokedexListEntry
@@ -187,6 +179,7 @@ fun PokedexEntry(
     }
 }
 
+//load the image in row so it can have 2 image per row
 @Composable
 fun PokedexRow(
     rowIndex: Int,
@@ -203,7 +196,7 @@ fun PokedexRow(
             )
             Spacer(modifier = Modifier.width(16.dp))
             //check if there is a second entry in this row
-            if (entries.size > rowIndex * 2 + 1) {
+            if (entries.size >= rowIndex * 2 + 1) {
                 //second entry
                 PokedexEntry(
                     entry = entries[rowIndex * 2 + 1],

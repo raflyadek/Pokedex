@@ -11,7 +11,7 @@ data class Pokemon(
 	val locationAreaEncounters: String? = null,
 
 	@field:SerializedName("types")
-	val types: List<TypesItem?>? = null,
+	val types: List<TypesItem>,
 
 	@field:SerializedName("base_experience")
 	val baseExperience: Int? = null,
@@ -20,7 +20,7 @@ data class Pokemon(
 	val heldItems: List<HeldItemsItem?>? = null,
 
 	@field:SerializedName("weight")
-	val weight: Int? = null,
+	val weight: Int,
 
 	@field:SerializedName("is_default")
 	val isDefault: Boolean? = null,
@@ -44,13 +44,13 @@ data class Pokemon(
 	val species: Species? = null,
 
 	@field:SerializedName("stats")
-	val stats: List<StatsItem?>? = null,
+	val stats: List<StatsItem>,
 
 	@field:SerializedName("moves")
 	val moves: List<MovesItem?>? = null,
 
 	@field:SerializedName("name")
-	val name: String? = null,
+	val name: String,
 
 	@field:SerializedName("id")
 	val id: Int? = null,
@@ -59,7 +59,7 @@ data class Pokemon(
 	val forms: List<FormsItem?>? = null,
 
 	@field:SerializedName("height")
-	val height: Int? = null,
+	val height: Int,
 
 	@field:SerializedName("order")
 	val order: Int? = null
@@ -182,10 +182,10 @@ data class Versions(
 data class Stat(
 
 	@field:SerializedName("name")
-	val name: String? = null,
+	val name: String,
 
 	@field:SerializedName("url")
-	val url: String? = null
+	val url: String
 )
 
 data class FormsItem(
@@ -203,7 +203,7 @@ data class TypesItem(
 	val slot: Int? = null,
 
 	@field:SerializedName("type")
-	val type: Type? = null
+	val type: Type
 )
 
 data class GenerationVi(
@@ -602,10 +602,10 @@ data class GenerationIv(
 data class Type(
 
 	@field:SerializedName("name")
-	val name: String? = null,
+	val name: String,
 
 	@field:SerializedName("url")
-	val url: String? = null
+	val url: String
 )
 
 data class Other(
@@ -704,10 +704,10 @@ data class Item(
 data class StatsItem(
 
 	@field:SerializedName("stat")
-	val stat: Stat? = null,
+	val stat: Stat,
 
 	@field:SerializedName("base_stat")
-	val baseStat: Int? = null,
+	val baseStat: Int,
 
 	@field:SerializedName("effort")
 	val effort: Int? = null
