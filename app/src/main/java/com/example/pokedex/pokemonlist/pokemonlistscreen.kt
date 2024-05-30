@@ -33,6 +33,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.focus.FocusState
+import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
@@ -58,7 +60,8 @@ import com.example.pokedex.ui.theme.RobotoCondensed
 //show pokemon list screen that will fetch the api from repo and show on this screen
 @Composable
 fun PokemonListScreen(
-    navController: NavController
+    navController: NavController,
+    viewModel: PokemonListViewModel = hiltViewModel()
 ) {
     Surface (
         color = MaterialTheme.colorScheme.background,
@@ -80,7 +83,7 @@ fun PokemonListScreen(
                     .fillMaxWidth()
                     .padding(16.dp)
             ) {
-
+                viewModel.searchPokemonList(it)
             }
             PokemonList(navController = navController)
         }
@@ -115,9 +118,9 @@ fun SearchBar(
                 .shadow(5.dp, CircleShape)
                 .background(Color.White, CircleShape)
                 .padding(horizontal = 20.dp, vertical = 12.dp)
-            //.onFocusChanged {
-            //  isHintDisplayed = it != FocusState
-            //}
+//                .onFocusChanged {
+//                    isHintDisplayed = it != FocusState.Active && text.isNotEmpty()
+//                }
         )
     }
 }
@@ -160,12 +163,12 @@ fun PokedexEntry(
                     .data(entry.imageUrl)
                     .crossfade(true)
                     .build(),
-                contentDescription = entry.pokemonName,
                 onSuccess = {
                     viewModel.calcDominantColor(it.result.drawable) { color ->
                         dominantColor = color
                     }
                 },
+                contentDescription = entry.pokemonName,
                 loading = {
                     CircularProgressIndicator()
                 },
@@ -192,24 +195,27 @@ fun PokedexRow(
 ) {
     Column {
         Row {
+            //first entry
             PokedexEntry(
                 entry = entries[rowIndex * 2],
                 navController = navController,
                 modifier = Modifier.weight(1f)
             )
+            Spacer(modifier = Modifier.width(16.dp))
+            //check if there is a second entry in this row
+            if (entries.size > rowIndex * 2 + 1) {
+                //second entry
+                PokedexEntry(
+                    entry = entries[rowIndex * 2 + 1],
+                    navController = navController,
+                    modifier = Modifier.weight(1f)
+                )
+            } else {
+                Spacer(modifier = Modifier.weight(1f))
+            }
         }
-        Spacer(modifier = Modifier.width(16.dp))
-        if(entries.size >= rowIndex * 2 + 2) {
-            PokedexEntry(
-                entry = entries[rowIndex * 2 + 1],
-                navController = navController,
-                modifier = Modifier.weight(1f)
-            )
-        } else {
-            Spacer(modifier = Modifier.weight(1f))
-        }
+        Spacer(modifier = Modifier.height(16.dp))
     }
-    Spacer(modifier = Modifier.height(16.dp))
 }
 
 @Composable
@@ -221,15 +227,16 @@ fun PokemonList(
     val endReached by remember { viewModel.endReached }
     val loadError by remember { viewModel.loadError }
     val isLoading by remember { viewModel.isLoading }
+    val isSearching by remember { viewModel.isSearching }
 
     LazyColumn(contentPadding = PaddingValues(16.dp)) {
         val itemCount = if(pokemonList.size % 2 == 0) {
             pokemonList.size / 2
         } else {
-            pokemonList.size / 2 +1
+            pokemonList.size / 2 + 1
         }
         items(itemCount) {
-            if (it >= itemCount -1 && !endReached) {
+            if (it >= itemCount -1 && !endReached && !isLoading && !isSearching) {
                 viewModel.loadPokemonPaginated()
             }
             PokedexRow(rowIndex = it, entries = pokemonList, navController = navController)
@@ -250,7 +257,7 @@ fun PokemonList(
     }
 }
 
-//if any error occur we can just click the button
+//if any error occur we can just click the retry button
 @Composable
 fun RetryLoad(
     error: String,

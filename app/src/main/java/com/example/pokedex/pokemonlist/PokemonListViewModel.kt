@@ -15,6 +15,7 @@ import com.example.pokedex.repository.PokemonRepository
 import com.example.pokedex.util.Constants.PAGE_SIZE
 import com.example.pokedex.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.util.Locale
 import javax.inject.Inject
@@ -25,7 +26,10 @@ class PokemonListViewModel @Inject constructor(
 ) : ViewModel() {
 
     private var curPage = 0
+    private var cachedPokemonList = listOf<PokedexListEntry>()
+    private var isSearchingStarted = true
 
+    var isSearching = mutableStateOf(false)
     var pokemonList = mutableStateOf<List<PokedexListEntry>>(listOf())
     var isLoading = mutableStateOf(false)
     var loadError = mutableStateOf("")
@@ -35,6 +39,31 @@ class PokemonListViewModel @Inject constructor(
         loadPokemonPaginated()
     }
 
+    fun searchPokemonList(query: String) {
+        val listToSearch = if(isSearchingStarted) {
+            pokemonList.value
+        } else {
+            cachedPokemonList
+        }
+        viewModelScope.launch(Dispatchers.Default) {
+            if(query.isEmpty()) {
+                pokemonList.value = cachedPokemonList
+                isSearching.value = false
+                isSearchingStarted = true
+                return@launch
+            }
+            val results = listToSearch.filter {
+                it.pokemonName.contains(query.trim(), ignoreCase = true) ||
+                        it.number.toString() == query.trim()
+            }
+            if(isSearchingStarted) {
+                cachedPokemonList = pokemonList.value
+                isSearchingStarted = false
+            }
+            pokemonList.value = results
+            isSearching.value = true
+        }
+    }
     fun loadPokemonPaginated() {
         viewModelScope.launch {
             isLoading.value = true
