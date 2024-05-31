@@ -146,8 +146,8 @@ fun PokemonDetailTopSection(
             contentDescription = null,
             tint = Color.White,
             modifier = Modifier
-                .size(30.dp)
-                .offset(x = 16.dp, y = 16.dp)
+                .size(36.dp)
+                .offset(16.dp, 30.dp)
                 .clickable {
                     navController.popBackStack()
                 }
