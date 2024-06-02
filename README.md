@@ -7,11 +7,11 @@ This `Pokedex` Android App i build using `kotlin` and `jetpack compose`. I use `
 
 ## Prerequisites
 
-Basic Kotlin and Jetpack Compose, knowledge of `HTTP` request by Retrofit library and dagger-hilt for `dependency injection` are required for this project.
+Basic `Kotlin` and `Jetpack Compose`, knowledge of `HTTP` request by Retrofit library and dagger-hilt for `dependency injection` are required for this project.
 
 ## Project Description
 
-I build a Pokedex Application with MVVM Architecture. The UI will be as like as above screenshot. There is a `SearchBar` where you can search what pokemon you want to see. If you click one of the pokemon the app will send `request` to Poke API to get the detail of the pokemon like what type, height and weight.
+I build a Pokedex Application with MVVM Architecture. The UI will be as like as above screenshot. There is a `SearchBar` where you can search what pokemon you want to see. If you click one of the pokemon the app will send `request` to Poke API to get the detail of the pokemon like what type, height, weight, and etc.
 
 ## Poke API
 
@@ -26,4 +26,4 @@ I use [Poke API](https://pokeapi.co/) for getting detail information of pokemon.
 
 ## Run Project
 
-This project was build on JDK 1.8. Sync the `Gradle` and run the project. Install APK on your emulator or real device. Dont forget to turn on the `internet` of your device so the application can access the Poke API.
+This project was build on `JDK 1.8`. Sync the `Gradle` and run the project. Install APK on your emulator or real device. Dont forget to turn on the `internet` of your device so the application can access the Poke API.
