@@ -3,7 +3,7 @@ This Pokedex Android App i build using kotlin and jetpack compose. I use Retrofi
 
 ![detail_image](app/src/main/res/drawable/detail_screen_pokedex.png)
 
-<img src"app/src/main/res/drawable/detail_screen_pokedex.png" width=600 height=300>
+<img src="app/src/main/res/drawable/detail_screen_pokedex.png" width=600 height=300>
 
 Prerequisites
 
