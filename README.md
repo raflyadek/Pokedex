@@ -1,6 +1,6 @@
 # Android MVVM Architecture - Pokedex App
 
-`MVVM Architecture` is one of the most popular architectur to develop an app. MVVM architectural pattern divides an application into three key components: Model, View, and ViewModel. Model: This is your business logic and data. Here, you process data, perform operations, and interact with data sources. View: This is the User Interface (UI). ViewModel: Acts as a mediator between the model and view.
+`MVVM Architecture` is one of the most popular architecture to develop an app. MVVM architectural pattern divides an application into three key components: Model, View, and ViewModel. Model: This is your business logic and data. Here, you process data, perform operations, and interact with data sources. View: This is the User Interface (UI). ViewModel: Acts as a mediator between the model and view.
 This `Pokedex` Android App i build using `kotlin` and `jetpack compose`. I use `Retrofit` for network calling library, `Dagger-hilt` for dependency Injection.
 
 <img src="app/src/main/res/drawable/list_screen_pokedex.png" width=300 height=400> <img src="app/src/main/res/drawable/detail_screen_pokedex.png" width=300 height=400> 
