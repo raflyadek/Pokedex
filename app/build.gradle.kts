@@ -83,7 +83,7 @@ dependencies {
     kapt(libs.kapt)
     kapt(libs.hilt.compiler)
 
-    //caroutine
+    //coroutines
     implementation(libs.coroutines)
 
     implementation(libs.palette)
