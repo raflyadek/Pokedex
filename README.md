@@ -6,6 +6,7 @@ This Pokedex Android App i build using kotlin and jetpack compose. I use Retrofi
 ![detail_screen_pokedex](https://github.com/raflyadek/Pokedex/assets/128274439/f37a39f8-5b93-4b02-8870-8ad5fec3fb2c)
 
 
+
 Prerequisites
 
 Basic Kotlin and Jetpack Compose, knowledge of HTTP request by Retrofit library and dagger-hilt for dependency injection are required for this project.
