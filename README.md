@@ -1,9 +1,9 @@
 MVVM Architecture is one of the most popular architectur to develop an app. MVVM architectural pattern divides an application into three key components: Model, View, and ViewModel. Model: This is your business logic and data. Here, you process data, perform operations, and interact with data sources. View: This is the User Interface (UI). ViewModel: Acts as a mediator between the model and view.
 This Pokedex Android App i build using kotlin and jetpack compose. I use Retrofit for network calling library, Dagger for dependency Injection.
 
-![list_screen_pokedex](https://github.com/raflyadek/Pokedex/assets/128274439/d1d66177-941f-44ff-823b-f38b009d1ddf)
+![list_screen_pokedex](https://github.com/raflyadek/Pokedex/assets/128274439/d1d66177-941f-44ff-823b-f38b009d1ddf = 250x250)
 
-![detail_screen_pokedex](https://github.com/raflyadek/Pokedex/assets/128274439/f37a39f8-5b93-4b02-8870-8ad5fec3fb2c)
+![detail_screen_pokedex](https://github.com/raflyadek/Pokedex/assets/128274439/f37a39f8-5b93-4b02-8870-8ad5fec3fb2c | width=100)
 
 
 
