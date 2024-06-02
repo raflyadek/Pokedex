@@ -26,4 +26,4 @@ I use [Poke API](https://pokeapi.co/) for getting detail information of pokemon.
 
 ## Run Project
 
-This project was build on JDK 1.8. Sync the `Gradle` and run the project. Install APK on your emulator or real device. Dont forget to turn on the internet of your device so the application can access the `Poke API`.
+This project was build on JDK 1.8. Sync the `Gradle` and run the project. Install APK on your emulator or real device. Dont forget to turn on the `internet` of your device so the application can access the Poke API.
