@@ -17,6 +17,13 @@ I build a Pokedex Application with MVVM Architecture. The UI will be as like as 
 
 I use [Poke API](https://pokeapi.co/) for getting detail information of pokemon. Poke API is only the HTTP GET method is available on resources. `No authentication` is required to access this API, and all resources are fully open and available.
 
+## Libraries 
+
+* [Coil](https://coil-kt.github.io/coil/compose/) for Image Loader
+* [Retrofit](https://github.com/square/retrofit) for HTTP Request
+* [Dagger/Hilt](https://github.com/google/dagger/releases) for Dependency Injection
+* [Kapt](https://kotlinlang.org/docs/kapt.html) for Annotation Processors
+
 ## Run Project
 
 This project was build on JDK 1.8. Sync the `Gradle` and run the project. Install APK on your emulator or real device. Turn on the internet of your texting device.
